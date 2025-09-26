@@ -1,0 +1,53 @@
+
+
+#frontend ignore
+# Logs
+frontendCV/logs
+frontendCV/*.log
+frontendCV/npm-debug.log*
+frontendCV/yarn-debug.log*
+frontendCV/yarn-error.log*
+frontendCV/pnpm-debug.log*
+frontendCV/lerna-debug.log*
+
+frontendCV/node_modules
+frontendCV/dist
+frontendCV/dist-ssr
+frontendCV/*.local
+
+# Editor directories and files
+frontendCV/.vscode/*
+frontendCV/!.vscode/extensions.json
+frontendCV/.idea
+frontendCV/.DS_Store
+frontendCV/*.suo
+frontendCV/*.ntvs*
+frontendCV/*.njsproj
+frontendCV/*.sln
+frontendCV/*.sw?
+
+#backend ignore
+
+backendCV/.phpunit.cache
+backendCV/node_modules
+backendCV/public/build
+backendCV/public/hot
+backendCV/public/storage
+backendCV/storage/*.key
+backendCV/storage/pail
+backendCV/vendor
+backendCV/.env
+backendCV/.env.backup
+backendCV/.env.production
+backendCV/.phpactor.json
+backendCV.phpunit.result.cache
+backendCV/Homestead.json
+backendCV/Homestead.yaml
+backendCV/npm-debug.log
+backendCV/yarn-error.log
+backendCV/auth.json
+backendCV/.fleet
+backendCV/.idea
+backendCV/.nova
+backendCV/.vscode
+backendCV/.zed
