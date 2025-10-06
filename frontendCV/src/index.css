@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Couleur de la charte graphique */
+:root{
+    --dominant-yellow: #FFD93D;
+    --text-color: #0E0E0E;
+}
+
+
+*{
+	font-family: Poppins, Helvetica;
+}
+
+
+.modal 
+{
+	display: none;
+	transition-behavior: allow-discrete;
+	transition-property: display opacity;
+	transition-duration: .4s;
+	backdrop-filter: blur(1.5px);
+	background-color: #1e3e624b;
+	opacity: 0;
+	width: 100dvw;
+	height: 100dvh;
+}
+
+.modal.show 
+{
+	opacity: 1;
+	display: flex;
+	@starting-style{
+		opacity: 0;
+	}
+}
+
+
+.modal form, .mdoal .form-d
+{
+	transition-behavior: allow-discrete;
+	transition-property: display opacity;
+	transition-duration: .4s;
+	transition-delay: .1s;
+	transform: translateY(-40vh);	
+}
+
+.modal.show form, .modal.show .form-d
+{
+	transform: translateY(0);
+	opacity: 1;
+	@starting-style{
+		transform: translateY(40vh);
+		opacity: 0;
+	}
+}

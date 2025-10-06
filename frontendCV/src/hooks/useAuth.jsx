@@ -30,7 +30,7 @@ export function AuthContextProvider({children})
             
             const userData = {
                 ...response.data,
-                profile_image: formatImageUrl(response.data.profile_image)
+                profile_image: formatImageUrl(response.data.profile_image, response.data.name)
             }
             setUser(userData);
             //setRole(response.data.roles.map((el) => el.name))
@@ -56,6 +56,7 @@ export function AuthContextProvider({children})
         
     }, [state])
 
+    console.log(user)
 
     const logout = async () => {
         const logoutPromise = new Promise(async (resolve, reject) => {

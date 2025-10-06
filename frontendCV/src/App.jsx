@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, useLocation } from 'react-router-dom'
 import './App.css'
 import { AuthRoutes } from './layouts/AuthRoutes'
 import Home from './pages/Home'
@@ -23,6 +23,7 @@ const routes = createBrowserRouter([
 
 
 function App() {
+
 	return <RouterProvider router={routes} />
 }
 

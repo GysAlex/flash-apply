@@ -1,8 +1,11 @@
 export const formatImageUrl = (imageUrl, name = '') => {
   const BASE_URL = 'http://localhost:8000'
 
+  console.log(name)
+
+
   if (!imageUrl) {
-    const encodedName = encodeURIComponent(name || 'Utilisateur')
+    const encodedName = encodeURIComponent(name)
     return `https://ui-avatars.com/api/?name=${encodedName}&background=E0F2F7&color=0694A2&bold=true`
   }
   if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
