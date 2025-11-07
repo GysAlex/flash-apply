@@ -2,13 +2,25 @@
 
 /* Couleur de la charte graphique */
 :root{
-    --dominant-yellow: #FFD93D;
-    --text-color: #0E0E0E;
+    --primary-color: #1C2A55;
+	--primary-color-trans: #ddf4f073;
+	--secondary-color: #FF6E40; /* Can be changed by this one #FF9800*/
+	--secondary-color-trans: #ff6d4059; /* Can be changed by this one #FF9800*/
+    --text-color: #1E1E1E;
+	--white: #ffffff;
+	--max-width: 1250px;
+	--section-padding-top: 3rem;
+
 }
 
+.something
+{
+	background-image: linear-gradient(#333a4e, #29324d, #1C2A55)
+}
 
 *{
 	font-family: Poppins, Helvetica;
+	scroll-behavior: smooth;
 }
 
 
@@ -52,4 +64,183 @@
 		transform: translateY(40vh);
 		opacity: 0;
 	}
+}
+
+.something
+{
+	color: #ffffffc5;
+}
+
+
+#menu a
+{
+	transition: all ease .4s;
+}
+
+#menu span
+{
+	position: relative;
+	padding-block: 5px;
+	transition: all ease .4s;
+}
+
+#menu span::before
+{
+	position: absolute;
+	content: '';
+	height: 2px;
+	width: 0;
+	background-color: var(--secondary-color);
+	bottom: 0px;
+	left: 50%;
+	transform: translateX(-50%);
+	transition: all ease .4s;
+	transform-origin: center;
+}
+
+#menu span:hover::before
+{
+	width: 100%;
+}
+
+/* Css burger */
+
+#myBurger{
+	cursor: pointer;
+    border: none;
+    background-color: white;
+    border-radius: 50%;
+    --button-color: rgb(1, 1, 32);
+    transition: 1s;
+}
+
+#myBurger .line
+{
+    transition: 1s;
+    stroke-dasharray: 60 31 60 300;
+	stroke: var(--primary-color)
+}
+
+#myBurger .hamburger
+{
+    transition: translate 1s, rotate 1s;
+	translate: 0px 2px;
+}
+
+#myBurger[aria-expanded="true"] .hamburger
+{
+    translate: 2px -3px;
+    rotate: .125turn;
+}
+
+#myBurger[aria-expanded="true"] .line
+{
+    stroke-dasharray: 60 106 60 300;
+    stroke-dashoffset: -90;
+	stroke: var(--secondary-color);
+}
+
+.title{
+    background: linear-gradient(90deg, #144df8, #1C2A55);
+    background-clip: text;
+    background-size: 190%;
+    background-position: bottom left;
+    animation: bg-animation infinite alternate-reverse 5s;
+    color: transparent;
+
+}
+
+@keyframes bg-animation {
+    to{
+        background-position: top right;
+    }    
+}
+
+/* Feature Item styling */
+
+.fearture-item::before
+{
+	content: "";
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	top: 0;
+	left: 0;
+	border-top-left-radius: 12px;
+	border-top: solid 3px var(--parent-color);
+	border-left: solid 3px var(--parent-color);
+}
+
+.fearture-item::after
+{
+	content: "";
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	bottom: 0;
+	right: 0;
+	border-bottom-right-radius: 12px;
+	border-bottom: solid 3px var(--parent-color);
+	border-right: solid 3px var(--parent-color);
+}
+
+
+/*CV Items effect*/
+
+.carousel-item
+{
+	transition: all ease .5s;
+}
+
+.carousel-item.nearest-cv
+{
+	filter: blur(3px);
+	scale: .9;
+	transition: all ease .4s !important;
+	z-index: 0;
+}
+
+.carousel-item.visible-cv
+{
+	z-index: 5;
+	transition: all ease .4s !important;
+}
+
+.carousel-item.side-cv
+{
+	z-index: 2;
+	transition: all ease .4s !important;
+}
+
+
+.carousel-item.main-cv
+{
+	transition: all ease .4s !important;
+}
+
+.cvItem
+{
+	background: var(--img) no-repeat center center;
+	background-size: cover;
+}
+
+
+.indicator
+{
+	transition: all ease .5s !important;
+}
+
+.indicator.stretch-ind
+{
+	background-color: var(--primary-color);
+	flex-grow: 2;
+	transition: all ease .5s !important;
+
+}
+
+.indicator.normal-ind
+{
+	background-color: #d1d5db;
+	flex-grow: 1;
+	transition: all ease .5s !important;
 }

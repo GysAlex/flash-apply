@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+@utility text-gradient{
+    background: linear-gradient(to right, #144df8, #0a2e7c);
+    background-clip: text;
+    color: transparent;
+    background-size: 400%;
+    background-position: bottom left;
+    animation: bg-animation 7s ease-in infinite alternate-reverse;
+}
+
+@utility title{
+    color: var(--primary-color);
+}
+
+@keyframes bg-animation {
+    to{
+        background-position: top right;
+    }    
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaTimes, FaSpinner, FaSave, FaUser, FaEnvelope, FaIdCard, FaLinkedin } from 'react-icons/fa';
+import { FaTimes, FaFacebook, FaSave, FaUser, FaEnvelope, FaIdCard, FaLinkedin } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc'
 import { toast } from 'sonner';
 import { ThreeDots } from 'react-loading-icons'
@@ -11,6 +11,7 @@ export function LoginWithProviderModal()
 {
     const [googleLoading, setGoogleLoading] = useState(false)
     const [linkedinLoading, setLinkedinLoading] = useState(false)
+    const [facebookLoading, setFacebookLoading] = useState(false)
 
     const { closeModal } = useModal()
 
@@ -24,10 +25,17 @@ export function LoginWithProviderModal()
         await waitAndResolve(300)
         window.open('http://localhost:8000/auth/google/redirect', "_self")
     }
+
     const handleLinkedinLogin = async () =>{
         setLinkedinLoading(true)
         await waitAndResolve(300)
         window.open('http://localhost:8000/auth/linkedin-openid/redirect', "_self")
+    }
+
+    const handleFacebookLogin = async () =>{
+        setFacebookLoading(true)
+        await waitAndResolve(300)
+        window.open('http://localhost:8000/auth/facebook/redirect', "_self")
     }
 
     return (
@@ -36,11 +44,11 @@ export function LoginWithProviderModal()
             style={{ boxShadow: "1px 5px 10px rgba(0, 0, 0, .2)" }}
         >
             <div className="my-4 flex items-center justify-between">
-                <span className="text-(--dominant-yellow) text-lg font-semibold">Se connecter</span>
+                <span className="text-(--secondary-color) text-lg font-semibold">Se connecter</span>
                 <button
                     onClick={onCancel}
                     type="button"
-                    className="cursor-pointer p-2 rounded-full bg-(--dominant-yellow) size-[30px] flex items-center justify-center"
+                    className="cursor-pointer p-2 rounded-full bg-(--secondary-color) size-[30px] flex items-center justify-center"
                 >
                     <FaTimes className="fa-solid fa-x text-sm text-white" />
                 </button>
@@ -56,6 +64,11 @@ export function LoginWithProviderModal()
                 <button disabled={linkedinLoading} onClick={handleLinkedinLogin} className='flex h-[35px] px-3 py-2 text-sm transition-all cursor-pointer bg-gray-100 hover:bg-gray-50 rounded-2xl items-center justify-center gap-2'>
                     <FaLinkedin size={25} className='text-[#004182]' />
                     {!linkedinLoading ? "Continuer avec linkedin" : <ThreeDots speed=".75" fill="#004182" width="18px"  />}
+                </button>
+
+                <button disabled={facebookLoading} onClick={handleFacebookLogin} className='flex h-[35px] px-3 py-2 text-sm transition-all cursor-pointer bg-gray-100 hover:bg-gray-50 rounded-2xl items-center justify-center gap-2'>
+                    <FaFacebook size={25} className='text-[#1877F2]' />
+                    {!facebookLoading ? "Continuer avec facebook" : <ThreeDots speed=".75" fill="#004182" width="18px"  />}
                 </button>
 
             </div>

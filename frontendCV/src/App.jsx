@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider, useLocation } from 'react-router-d
 import './App.css'
 import { AuthRoutes } from './layouts/AuthRoutes'
 import Home from './pages/Home'
+import Dashboard from './pages/Dashboard'
 
 
 const routes = createBrowserRouter([
@@ -10,12 +11,12 @@ const routes = createBrowserRouter([
 		element: <Home />
 	},
 	{
-		path: '/profile',
+		path: '/dashboard',
 		element: <AuthRoutes />,
 		children: [
 			{
 				path: '',
-				element: <div>Bienvenu sur ton dashboard</div>
+				element: <Dashboard />
 			}
 		]
 	}

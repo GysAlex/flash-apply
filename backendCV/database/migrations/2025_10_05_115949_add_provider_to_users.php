@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('provider_name')->after('provider_id')->nullable();
             $table->longText('provider_token')->after('provider_name')->nullable();
             $table->longText('provider_refresh_token')->after('provider_token')->nullable();
-            $table->string('profile_image')->nullable()->after('provider_refresh_token');
+            $table->longText('profile_image')->nullable()->after('provider_refresh_token');
         });
     }
 

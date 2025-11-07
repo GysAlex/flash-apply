@@ -1,20 +1,12 @@
 import { useEffect, useState } from "react"
 import { useModal } from "../hooks/useModal"
 import { LoginWithProviderModal } from "../components/modals/LoginWithProviderModal"
-import { Header, LogoutHeader } from "../components/Header"
+import { Header } from "../components/Header"
 import { useLocation } from "react-router-dom"
 import { toast } from "sonner"
 import { waitAndResolve } from "../utils/waitAndResolve"
-import { HeroSection } from "../components/HeroSection"
-import { Feature } from "../components/Feature"
-import { Steps } from "../components/Steps"
-import { ModelSection } from "../components/ModelSection"
-import { MainAdvantageSection } from "../components/MainAdvantageSection"
-import { Testimonial } from "../components/Testimonial"
-import { CTASection } from "../components/CTASection"
-import { Footer } from "../components/Footer"
 
-export default function Home()
+export default function Dashboard()
 {
     const [loading, setLoading] = useState(false)
 
@@ -50,14 +42,10 @@ export default function Home()
 
     return <div>
 
-        <LogoutHeader />
-        <HeroSection />
-        <Feature />
-        <Steps />
-        <ModelSection />
-        <MainAdvantageSection />
-        <Testimonial />
-        <CTASection />
-        <Footer />
+        <Header />
+        <div className="h-[90vh] grid place-items-center bg-amber-300">
+            Bonjour patron
+        </div>
+        
     </div>
 }

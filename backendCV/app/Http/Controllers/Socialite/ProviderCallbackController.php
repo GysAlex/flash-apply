@@ -12,7 +12,7 @@ class ProviderCallbackController extends Controller
 {
     public function callback(Request $request)
     {
-        $valideProviders = ['github', 'google', 'linkedin-openid'];
+        $valideProviders = ['facebook', 'google', 'linkedin-openid'];
 
         if(!in_array($request->provider, $valideProviders))
         {
@@ -28,10 +28,10 @@ class ProviderCallbackController extends Controller
             'provider_name' => $request->provider,
         ], [
             'name' => $providedUser->user['name'],
-            'email' => $providedUser->user['email'],
+            'email' => $providedUser->user['email'] ?? join('@', explode(' ', strtolower($providedUser->user['name']))).'.com',
             'provider_token' => $providedUser->token,
             'provider_refresh_token' => $providedUser->refreshToken,
-            'profile_image' => $providedUser->user['picture'],
+            'profile_image' => $providedUser->avatar,
         ]);
 
 
@@ -40,7 +40,7 @@ class ProviderCallbackController extends Controller
 
         session()->regenerate();
 
-        return redirect(env('FRONTEND_URL'))->with('success', 'Bienvenue '.Auth::user()->name.' !');
+        return redirect(env('FRONTEND_URL').'/dashboard')->with('success', 'Bienvenue '.Auth::user()->name.' !');
 
     }
 }

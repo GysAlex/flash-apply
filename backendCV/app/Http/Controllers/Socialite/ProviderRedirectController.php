@@ -15,8 +15,7 @@ class ProviderRedirectController extends Controller
 
         if(!in_array($request->provider, $valideProviders))
         {
-            $errorMessage = "Une erreur est survenue lors de la connexion";
-
+            $errorMessage = "Provider invalide";
             return redirect(env('FRONTEND_URL').'?error='.urlencode($errorMessage));
         }
 

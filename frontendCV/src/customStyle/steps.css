@@ -1,0 +1,21 @@
+#desktopSvg
+{
+    display: none;
+}
+
+#mobileSvg
+{
+    display: unset;
+}
+
+@media (min-width: 992px) {
+
+    #desktopSvg{
+        display: block;
+    }
+
+    #mobileSvg {
+        display: none;
+    }   
+
+}
